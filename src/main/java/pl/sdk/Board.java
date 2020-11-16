@@ -23,19 +23,10 @@ class Board {
         return map.get(new Point(aX, aY));
     }
 
-    void moveCreature(Point aPoint, Creature aCreature) {
-        Point oldPoint = getKeyFromValue(map, aCreature);
-        map.remove(oldPoint);
-        map.put(aPoint, aCreature);
+    void moveCreature(Point aSourcePoint, Point aTargetPoint) {
+        Creature creatureFromSourcePoint = map.get(aSourcePoint);
+        map.remove(aSourcePoint);
+        map.put(aTargetPoint, creatureFromSourcePoint);
     }
 
-    static <K, V> K getKeyFromValue(Map<K, V> map, Object value) {
-        for (Map.Entry<K, V> entry : map.entrySet()) {
-
-            if (entry.getValue().equals(value)) {
-                return entry.getKey();
-            }
-        }
-        return null;
-    }
 }

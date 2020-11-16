@@ -8,25 +8,14 @@ import java.util.Collection;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CreatureAttackTest {
-
-    private Creature a;
-    private Creature b;
-    private Collection<Creature> creatureList;
-
-    @BeforeEach
-    void init() {
-        a = new Creature();
-        b = new Creature();
-        creatureList = new ArrayList<>();
-        creatureList.add(a);
-        creatureList.add(b);
-    }
+public class AttackCreatureTest {
 
     @Test
-    void creatureAShouldAttackCreatureB() {
-        a.attack(b, a.getStats().getAttack());
+    void creatureShouldLost10HpWhenAttackerHas20AttackAndDefenderHas10Armor() {
+        Creature a = new Creature("Attacker", 20, 5, 100, 5);
+        Creature b = new Creature("Defender", 5, 10, 100, 5);
+        a.attack(b);
 
-        assertEquals(9, b.getCurrentHp());
+        assertEquals(90, b.getCurrentHp());
     }
 }

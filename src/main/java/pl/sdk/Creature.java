@@ -21,11 +21,17 @@ class Creature {
 
 
     void attack(Creature defender) {
-        int damageToDeal = this.stats.getAttack() - defender.stats.getArmor();
-        if (damageToDeal < 0) {
-            damageToDeal = 0;
+        if (isAlive()) {
+            int damageToDeal = this.stats.getAttack() - defender.stats.getArmor();
+            if (damageToDeal < 0) {
+                damageToDeal = 0;
+            }
+            defender.currentHp = defender.currentHp - damageToDeal;
         }
-        defender.currentHp = defender.currentHp - damageToDeal;
+    }
+
+    private boolean isAlive() {
+        return currentHp > 0;
     }
 
 }

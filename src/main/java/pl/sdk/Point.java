@@ -25,4 +25,12 @@ class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    int getX() {
+        return x;
+    }
+
+    int getY() {
+        return y;
+    }
 }

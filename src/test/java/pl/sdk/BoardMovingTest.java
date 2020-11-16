@@ -36,5 +36,14 @@ public class BoardMovingTest {
 
         assertEquals(creature, creatureFromBoard);
     }
+    @Test
+    void shouldThrowIllegalArgumentExceptionWhenTryToMoveCreatureToFieldOutsideMap() {
+        board.add(new Point(0, 1), new Creature());
 
+        assertThrows(IllegalArgumentException.class, () -> board.moveCreature(new Point(0, 0), new Point(21, 16)));
+
+        Creature creatureFromBoard = board.get(0, 0);
+
+        assertEquals(creature, creatureFromBoard);
+    }
 }

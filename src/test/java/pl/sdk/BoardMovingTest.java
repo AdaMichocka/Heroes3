@@ -3,8 +3,7 @@ package pl.sdk;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BoardMovingTest {
     private Board board;
@@ -18,12 +17,23 @@ public class BoardMovingTest {
     }
 
     @Test
-    void shouldMoveCreature() {
+    void creatureShouldMoveCorrectly() {
         board.moveCreature(new Point(0, 0), new Point(0, 1));
 
         Creature creatureFromBoard = board.get(0, 1);
 
         assertNull(board.get(0, 0));
+        assertEquals(creature, creatureFromBoard);
+    }
+
+    @Test
+    void shouldThrowIllegalArgumentExceptionWhenTryToMoveCreatureToNotEmptyField() {
+        board.add(new Point(0, 1), new Creature());
+
+        assertThrows(IllegalArgumentException.class, () -> board.moveCreature(new Point(0, 0), new Point(0, 1)));
+
+        Creature creatureFromBoard = board.get(0, 0);
+
         assertEquals(creature, creatureFromBoard);
     }
 

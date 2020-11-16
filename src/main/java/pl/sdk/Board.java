@@ -25,6 +25,9 @@ class Board {
 
     void moveCreature(Point aSourcePoint, Point aTargetPoint) {
         Creature creatureFromSourcePoint = map.get(aSourcePoint);
+        if (map.containsKey(aTargetPoint)) {
+            throw new IllegalArgumentException();
+        }
         map.remove(aSourcePoint);
         map.put(aTargetPoint, creatureFromSourcePoint);
     }

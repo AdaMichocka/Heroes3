@@ -12,10 +12,19 @@ public class AttackCreatureTest {
 
     @Test
     void creatureShouldLost10HpWhenAttackerHas20AttackAndDefenderHas10Armor() {
-        Creature a = new Creature("Attacker", 20, 5, 100, 5);
-        Creature b = new Creature("Defender", 5, 10, 100, 5);
-        a.attack(b);
+        Creature attacker = new Creature("Attacker", 20, 5, 100, 5);
+        Creature defender = new Creature("Defender", 5, 10, 100, 5);
+        attacker.attack(defender);
 
-        assertEquals(90, b.getCurrentHp());
+        assertEquals(90, defender.getCurrentHp());
+    }
+
+    @Test
+    void creatureShouldNotSelfeHealWhenAttackerHasLowerAttackThanDefenderArmor() {
+        Creature attacker = new Creature("Attacker", 20, 5, 100, 5);
+        Creature defender = new Creature("Defender", 5, 30, 100, 5);
+        attacker.attack(defender);
+
+        assertEquals(100, defender.getCurrentHp());
     }
 }

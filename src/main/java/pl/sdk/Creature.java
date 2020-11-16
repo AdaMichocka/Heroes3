@@ -20,8 +20,12 @@ class Creature {
     }
 
 
-    void attack(Creature b) {
-        b.currentHp = b.currentHp - this.stats.getAttack() + b.stats.getArmor();
+    void attack(Creature defender) {
+        int damageToDeal = this.stats.getAttack() - defender.stats.getArmor();
+        if (damageToDeal < 0) {
+            damageToDeal = 0;
+        }
+        defender.currentHp = defender.currentHp - damageToDeal;
     }
 
 }

@@ -32,5 +32,15 @@ class BoardTest {
         assertNull(creatureFromBoard);
     }
 
+    @Test
+    void shouldXWhenTryAddCreatureToNotEmptyField() {
+        board.add(new Point(0, 0), creature);
+        Creature creature2 = new Creature();
+        board.add(new Point(0,0), creature2);
+
+        Creature creatureFromBoard = board.get(0, 0);
+
+        assertEquals(creature, creatureFromBoard);
+    }
 
 }

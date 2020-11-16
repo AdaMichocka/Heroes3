@@ -39,4 +39,16 @@ class BoardTest {
         assertThrows(IllegalArgumentException.class, () -> board.add(new Point(0, 0), creature2));
     }
 
+    @Test
+    void shouldMoveCreature() {
+        board.add(new Point(0, 0), creature);
+        board.moveCreature(new Point(1, 1), creature);
+
+        Creature oldCreature = board.get(0, 0);
+        Creature creatureFromBoard = board.get(1, 1);
+
+        assertNull(oldCreature);
+        assertEquals(creature, creatureFromBoard);
+    }
+
 }

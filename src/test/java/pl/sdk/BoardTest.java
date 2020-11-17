@@ -39,6 +39,13 @@ class BoardTest {
         assertThrows(IllegalArgumentException.class, () -> board.add(new Point(0, 0), creature2));
     }
 
+    @Test
+    void shouldReturnCorrectLocationForByCreature() {
+        board.add(new Point(5, 5), creature);
 
+        Point result = board.get(creature);
+
+        assertEquals(new Point(5, 5), result);
+    }
 
 }

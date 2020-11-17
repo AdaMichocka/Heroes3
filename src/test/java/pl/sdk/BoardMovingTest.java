@@ -18,7 +18,7 @@ public class BoardMovingTest {
 
     @Test
     void creatureShouldMoveCorrectly() {
-        board.moveCreature(new Point(0, 0), new Point(0, 1));
+        board.move(new Point(0, 0), new Point(0, 1));
 
         Creature creatureFromBoard = board.get(0, 1);
 
@@ -30,7 +30,7 @@ public class BoardMovingTest {
     void shouldThrowIllegalArgumentExceptionWhenTryToMoveCreatureToNotEmptyField() {
         board.add(new Point(0, 1), new Creature());
 
-        assertThrows(IllegalArgumentException.class, () -> board.moveCreature(new Point(0, 0), new Point(0, 1)));
+        assertThrows(IllegalArgumentException.class, () -> board.move(new Point(0, 0), new Point(0, 1)));
 
         Creature creatureFromBoard = board.get(0, 0);
 
@@ -40,7 +40,7 @@ public class BoardMovingTest {
     void shouldThrowIllegalArgumentExceptionWhenTryToMoveCreatureToFieldOutsideMap() {
         board.add(new Point(0, 1), new Creature());
 
-        assertThrows(IllegalArgumentException.class, () -> board.moveCreature(new Point(0, 0), new Point(21, 16)));
+        assertThrows(IllegalArgumentException.class, () -> board.move(new Point(0, 0), new Point(21, 16)));
 
         Creature creatureFromBoard = board.get(0, 0);
 

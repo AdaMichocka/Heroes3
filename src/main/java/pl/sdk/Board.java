@@ -22,7 +22,7 @@ class Board {
         return map.get(new Point(aX, aY));
     }
 
-    void moveCreature(Point aSourcePoint, Point aTargetPoint) {
+    void move(Point aSourcePoint, Point aTargetPoint) {
         Creature creatureFromSourcePoint = map.get(aSourcePoint);
         throwExceptionWhenFieldIsTakenOrOutsideMap(aTargetPoint);
         map.remove(aSourcePoint);

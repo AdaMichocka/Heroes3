@@ -23,7 +23,7 @@ public class CreatureCounterAttackTest {
         attacker.attack(defender);
 
         assertEquals(90, attacker.getCurrentHp());
-        assertEquals(10 0, attacker2.getCurrentHp());
+        assertEquals(100, attacker2.getCurrentHp());
     }
 
 }

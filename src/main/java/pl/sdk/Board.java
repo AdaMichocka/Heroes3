@@ -2,6 +2,8 @@ package pl.sdk;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 class Board {
 
@@ -22,7 +24,15 @@ class Board {
         return map.get(new Point(aX, aY));
     }
 
-    void moveCreature(Point aSourcePoint, Point aTargetPoint) {
+    Point get(Creature aCreature) {
+        return map.keySet().stream().filter(p -> map.get(p).equals(aCreature)).findAny().get();
+    }
+
+    void move(Creature aCreature, Point aTargetPoint) {
+        move(get(aCreature), aTargetPoint);
+    }
+
+    void move(Point aSourcePoint, Point aTargetPoint) {
         Creature creatureFromSourcePoint = map.get(aSourcePoint);
         throwExceptionWhenFieldIsTakenOrOutsideMap(aTargetPoint);
         map.remove(aSourcePoint);

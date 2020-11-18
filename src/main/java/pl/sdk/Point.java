@@ -2,12 +2,12 @@ package pl.sdk;
 
 import java.util.Objects;
 
-class Point {
+public class Point {
 
     final private int x;
     final private int y;
 
-    Point(int aX, int aY) {
+    public Point(int aX, int aY) {
         this.x = aX;
         this.y = aY;
     }

@@ -18,10 +18,6 @@ public class GameEngine {
         queue = new CreatureTurnQueue(twoSidesCreatures);
     }
 
-    Board getBoard() {
-        return board;
-    }
-
     public void move(Point aTarget) {
         board.move(queue.getActiveCreature(), aTarget);
     }

@@ -13,6 +13,7 @@ class Creature {
     Creature(String aName, int aAttack, int aArmor, int aMaxHp, int aMoveRange) {
         stats = new CreatureStatistic(aName, aAttack, aArmor, aMaxHp, aMoveRange);
         currentHp = stats.getMaxHp();
+        counterAttackedInThisTurn = false;
     }
 
 
@@ -32,6 +33,14 @@ class Creature {
                 defender.counterAttackedInThisTurn = true;
             }
         }
+    }
+
+    boolean canCounterAttack() {
+        return !this.counterAttackedInThisTurn;
+    }
+
+    void resetCounterAttack() {
+        this.counterAttackedInThisTurn = false;
     }
 
     private int calculateDamage(Creature defender) {

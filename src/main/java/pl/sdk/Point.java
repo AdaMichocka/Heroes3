@@ -1,14 +1,26 @@
 package pl.sdk;
 
+import javafx.scene.shape.Line;
+
 import java.util.Objects;
 
-public class Point {
+public class Point extends Line {
     private int x;
     private int y;
+    private double distanceToCenter;
 
     public Point(int aX, int aY) {
         this.x = aX;
         this.y = aY;
+
+        distanceToCenter = Math.sqrt(x * x + y * y);
+
+        setStartX(aX * 50 + 50);
+        setStartY(350 - aY * 50);
+        setEndX(aX * 50 + 50);
+        setEndY(350 - aY * 50);
+
+        setStrokeWidth(5);
     }
 
     public Point(Point aPoint1) {
@@ -31,16 +43,20 @@ public class Point {
         this.y = aY;
     }
 
+    double getDistanceToCenter() {
+        return distanceToCenter;
+    }
+
+    void setDistanceToCenter(double aDistanceToCenter) {
+        distanceToCenter = aDistanceToCenter;
+    }
+
     @Override
     public String toString() {
         return "Point{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';
-    }
-
-    public double getDistanceToCenter() {
-        return Math.sqrt(x * x + y * y);
     }
 
     @Override

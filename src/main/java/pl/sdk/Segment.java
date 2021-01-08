@@ -1,15 +1,24 @@
 package pl.sdk;
 
+import javafx.scene.shape.Line;
+
 import java.util.Objects;
 
-public class Segment {
+public class Segment extends Line {
 
     private Point startPoint;
     private Point ednPoint;
 
-    public Segment(Point startPoint, Point ednPoint) {
-        this.startPoint = startPoint;
-        this.ednPoint = ednPoint;
+    public Segment(Point aStartPoint, Point aEndPoint) {
+        this.startPoint = aStartPoint;
+        this.ednPoint = aEndPoint;
+
+        setStartX(aStartPoint.getX() * 50 + 50);
+        setStartY(350 - aStartPoint.getY() * 50);
+        setEndX(aEndPoint.getX() * 50 + 50);
+        setEndY(350 - aEndPoint.getY() * 50);
+
+        setStrokeWidth(5);
     }
 
     @Override

@@ -1,31 +1,45 @@
 package pl.sdk;
 
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 import java.util.Objects;
 
 public class Segment extends Line {
 
+    private final Color color;
+    private final double strokeWidth;
     private Point startPoint;
-    private Point ednPoint;
+    private Point endPoint;
+
+    public Segment(Point aStartPoint, Point aEndPoint, Color aColor, double aStrokeWidth) {
+        startPoint = aStartPoint;
+        endPoint = aEndPoint;
+        color = aColor;
+        strokeWidth = aStrokeWidth;
+
+        refreshGui();
+    }
 
     public Segment(Point aStartPoint, Point aEndPoint) {
-        this.startPoint = aStartPoint;
-        this.ednPoint = aEndPoint;
+        this(aStartPoint, aEndPoint, Color.BLUE, 5);
+    }
 
-        setStartX(aStartPoint.getX() * 50 + 50);
-        setStartY(350 - aStartPoint.getY() * 50);
-        setEndX(aEndPoint.getX() * 50 + 50);
-        setEndY(350 - aEndPoint.getY() * 50);
+    public void refreshGui() {
+        setStartX(startPoint.getX() * 50 + 50);
+        setStartY(350 - startPoint.getY() * 50);
+        setEndX(endPoint.getX() * 50 + 50);
+        setEndY(350 - endPoint.getY() * 50);
 
-        setStrokeWidth(5);
+        setStrokeWidth(strokeWidth);
+        setStroke(color);
     }
 
     @Override
     public String toString() {
         return "Segment{" +
                 "startPoint=" + startPoint +
-                ", ednPoint=" + ednPoint +
+                ", ednPoint=" + endPoint +
                 ", length=" + calculateLength(this) +
                 '}';
     }
@@ -38,12 +52,12 @@ public class Segment extends Line {
         this.startPoint = startPoint;
     }
 
-    public Point getEdnPoint() {
-        return ednPoint;
+    public Point getEndPoint() {
+        return endPoint;
     }
 
-    public void setEdnPoint(Point ednPoint) {
-        this.ednPoint = ednPoint;
+    public void setEndPoint(Point ednPoint) {
+        this.endPoint = ednPoint;
     }
 
     @Override
@@ -52,15 +66,15 @@ public class Segment extends Line {
     }
 
     private double calculateLength(Segment aSegment) {
-        int diffX = aSegment.startPoint.getX() - aSegment.ednPoint.getX();
-        int diffY = aSegment.startPoint.getY() - aSegment.ednPoint.getY();
+        int diffX = aSegment.startPoint.getX() - aSegment.endPoint.getX();
+        int diffY = aSegment.startPoint.getY() - aSegment.endPoint.getY();
         return Math.sqrt(diffX * diffX + diffY * diffY);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(startPoint, ednPoint);
-    }
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(startPoint, endPoint);
+//    }
 
     void draw() {
         System.out.println(toString());

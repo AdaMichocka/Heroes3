@@ -21,7 +21,14 @@ public class Segment extends Line {
         strokeWidth = aStrokeWidth;
 
         addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
-            setStroke(Color.YELLOW);
+            double x = e.getX();
+            double y = e.getY();
+
+            if ((getStartX() - x < 10) && getStartY() - y < 10) {
+                System.out.println("punkt poczatkowy: " + this);
+            } else if ((getEndX() - x < 10) && getEndY() - y < 10) {
+                System.out.println("punkt koncowy: " + this);
+            }
         });
 
         refreshGui();

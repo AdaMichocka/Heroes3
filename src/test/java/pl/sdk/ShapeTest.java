@@ -14,7 +14,7 @@ public class ShapeTest {
         points.add(new Point(1, 4));
         points.add(new Point(4, 4));
         points.add(new Point(4, 1));
-        Shape s = new Shape(points);
+        ShapeRenderer s = new ShapeRenderer(points);
         s.draw();
 
     }

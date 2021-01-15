@@ -2,10 +2,12 @@ package pl.sdk.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.paint.Color;
 import pl.sdk.Point;
 import pl.sdk.Segment;
-import pl.sdk.SelfishSegment;
+import pl.sdk.ShapeRenderer;
+import pl.sdk.ShapeSelfishRenderer;
+
+import java.util.Arrays;
 
 public class CordSystemController {
 
@@ -14,17 +16,23 @@ public class CordSystemController {
 
     @FXML
     private void initialize() {
-        Point point = new Point(1, 1);
+        Point point1 = new Point(1, 1);
         Point point2 = new Point(3, 1);
-        Point point3 = new Point(1, 3);
+        Point point3 = new Point(3, 3);
+        Point point4 = new Point(1, 3);
 
-        Segment s1 = new Segment(point, point2, Color.RED, 9);
-        Segment s2 = new SelfishSegment(point, point3);
+        ShapeRenderer shape = new ShapeRenderer(Arrays.asList(point1, point2, point3, point4));
+        ShapeSelfishRenderer shape2 = new ShapeSelfishRenderer(Arrays.asList(point1, point2, point3, point4));
+        shape2.draw(pane);
+        shape.draw(pane);
 
-        pane.getChildren().addAll(s1, s2);
+        shape.getPoints().get(2).setX(5);
 
-        s1.getStartPoint().setX(7);
-        refreshGui(s1, s2);
+        pane.getChildren()
+                .stream()
+                .filter(n -> n instanceof Segment)
+                .map(Segment.class::cast)
+                .forEach(s -> s.refreshGui());
 
     }
 

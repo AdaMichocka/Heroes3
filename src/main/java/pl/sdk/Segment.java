@@ -1,5 +1,7 @@
 package pl.sdk;
 
+import javafx.event.EventHandler;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
@@ -17,6 +19,10 @@ public class Segment extends Line {
         endPoint = aEndPoint;
         color = aColor;
         strokeWidth = aStrokeWidth;
+
+        addEventHandler(MouseEvent.MOUSE_CLICKED, e -> {
+            setStroke(Color.YELLOW);
+        });
 
         refreshGui();
     }

@@ -15,9 +15,6 @@ public class ShapeQueueTest {
         points.add(new Point(4, 4));
         points.add(new Point(4, 1));
 
-        ShapeQueue sq = new ShapeQueue(points);
-        sq.draw();
-
     }
 
 }

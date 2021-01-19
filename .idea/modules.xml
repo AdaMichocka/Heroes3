@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/battle-gui/battle-gui.iml" filepath="$PROJECT_DIR$/battle-gui/battle-gui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/battle-model/battle-model.iml" filepath="$PROJECT_DIR$/battle-model/battle-model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/heroes-bundle.iml" filepath="$PROJECT_DIR$/heroes-bundle.iml" />
+    </modules>
+  </component>
+</project>

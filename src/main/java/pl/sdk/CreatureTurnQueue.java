@@ -28,7 +28,6 @@ class CreatureTurnQueue {
     void next() {
         if (creatureQueue.isEmpty()) {
             initQueue();
-            creatureQueue.forEach(c -> c.resetCounterAttack());
         }
         activeCreature = creatureQueue.poll();
     }

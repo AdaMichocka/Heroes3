@@ -42,17 +42,6 @@ class CreatureTurnQueueTest {
         assertEquals(a, creatureTurnQueue.getActiveCreature());
     }
 
-    @Test
-    void x() {
-        CreatureTurnQueue queue = new CreatureTurnQueue(creatureList);
-        a.attack(b);
 
-        assertFalse(a.canCounterAttack());
-        queue.next();
-        queue.next();
-        queue.next();
-        assertTrue(a.canCounterAttack());
-
-    }
 
 }

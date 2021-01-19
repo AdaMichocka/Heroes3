@@ -33,8 +33,8 @@ class Board {
     }
 
     void move(Point aSourcePoint, Point aTargetPoint) {
-        Creature creatureFromSourcePoint = map.get(aSourcePoint);
         throwExceptionWhenFieldIsTakenOrOutsideMap(aTargetPoint);
+        Creature creatureFromSourcePoint = map.get(aSourcePoint);
         map.remove(aSourcePoint);
         map.put(aTargetPoint, creatureFromSourcePoint);
     }

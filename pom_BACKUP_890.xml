@@ -25,11 +25,14 @@
             <artifactId>javafx-controls</artifactId>
             <version>11</version>
         </dependency>
+<<<<<<< HEAD
+=======
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
             <version>11-ea+25</version>
         </dependency>
+>>>>>>> CORDSYSTEM
     </dependencies>
     <build>
         <plugins>

@@ -1,0 +1,23 @@
+.button {
+    -fx-background-color: linear-gradient(#E3BE3C, #D4AA15),
+    radial-gradient(center 50% -40%, radius 200%, #5D330D 45%, #371E07 50%);
+    -fx-background-radius: 6, 5;
+    -fx-background-insets: 0, 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 5, 0.0, 0, 1);
+    -fx-text-fill: #E3BE3C;
+    -fx-padding: 10px;
+    -fx-background-insets: 5px;
+    -fx-font: bold 15pt "Arial";
+}
+
+.label{
+    -fx-font: bold 25pt "Arial";
+    -fx-background-color: linear-gradient(#A83234, #822728),
+    radial-gradient(center 50% -40%, radius 200%, #822728 45%, #5B1B1C 50%);
+    -fx-background-radius: 6, 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.4), 5, 0.0, 0, 1);
+    -fx-text-fill: #E2DAB0;
+    -fx-padding: 10px;
+    -fx-background-insets: 2px;
+
+}

@@ -1,7 +1,6 @@
-package pl.sdk;
+package pl.sdk.model;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class GameEngine {
@@ -39,5 +38,9 @@ public class GameEngine {
         for (int i = 0; i < aCreatures.size(); i++) {
             board.add(new Point(i2, i * 2), aCreatures.get(i));
         }
+    }
+
+    public Creature get(int aX, int aY) {
+        return board.get(aX, aY);
     }
 }
